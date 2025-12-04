@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #0070f3;
+  --secondary: #7928ca;
+  --accent: #ff0080;
+  --muted: #666666;
+
+  --font-rubik: 'Rubik', sans-serif;
+  --font-merriweather: 'Merriweather', serif;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --primary: #3291ff;
+  --secondary: #9d5cf1;
+  --accent: #ff3a9e;
+  --muted: #a0a0a0;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: var(--font-merriweather);
+  color: var(--foreground);
+  background: var(--background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-rubik);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Hide Next.js dev indicators */
+#__next-build-watcher {
+  display: none !important;
+}
