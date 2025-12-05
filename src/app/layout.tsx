@@ -42,6 +42,9 @@ export default function RootLayout({
               <Link href="/blog" className="hover:text-primary transition-colors">
                 Blog
               </Link>
+              <Link href="/about" className="hover:text-primary transition-colors">
+                About
+              </Link>
               <Link href="/preview" className="hover:text-primary transition-colors">
                 Preview
               </Link>

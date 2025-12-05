@@ -1,35 +1,9 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useTheme } from '@/hooks/useTheme'
 
 const DarkModeToggle: React.FC = () => {
-  const [isDark, setIsDark] = useState(false)
-
-  useEffect(() => {
-    // Check initial theme preference
-    const savedTheme = localStorage.getItem('theme')
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-
-    const initialDark = savedTheme === 'dark' || (!savedTheme && prefersDark)
-    setIsDark(initialDark)
-
-    if (initialDark) {
-      document.documentElement.classList.add('dark')
-    }
-  }, [])
-
-  const toggleTheme = () => {
-    const newIsDark = !isDark
-    setIsDark(newIsDark)
-
-    if (newIsDark) {
-      document.documentElement.classList.add('dark')
-      localStorage.setItem('theme', 'dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-      localStorage.setItem('theme', 'light')
-    }
-  }
+  const { theme, toggleTheme } = useTheme()
 
   return (
     <button
@@ -37,7 +11,7 @@ const DarkModeToggle: React.FC = () => {
       className="p-2 rounded-md hover:bg-muted hover:bg-opacity-20 transition-colors"
       aria-label="Toggle dark mode"
     >
-      {isDark ? (
+      {theme === 'dark' ? (
         <svg
           className="w-6 h-6"
           fill="none"
